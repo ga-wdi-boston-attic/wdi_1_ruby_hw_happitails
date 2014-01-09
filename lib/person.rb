@@ -1,9 +1,8 @@
 class Person
-	attr_accessor :name, :age, :number_of_pets, :pet_names
-	def initialize
+	attr_accessor :name, :age, :pets
+	def initialize(name, age, pets)
 		@name = name
 		@age = age
-		@number_of_pets = number_of_pets
-		@pet_names = {}
+		@pets = pets
 	end
 end
