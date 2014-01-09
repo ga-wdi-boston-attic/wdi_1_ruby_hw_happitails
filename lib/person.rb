@@ -7,11 +7,4 @@ class Person
 		@pets = {}
 	end
 
-	def add_pet(pet)
-		# @pets.merge!( (pet.name).to_sym => pet )
-	end
-
-	def remove_pet(pet)
-
-	end
 end
