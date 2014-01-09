@@ -1,7 +1,8 @@
 class Animal
+
 	attr_accessor :name, :age, :gender, :species, :toys
 
-	def initialize
+	def initialize(name, age, gender, species)
 			@name = name
 			@age = age
 			@gender = gender
@@ -9,3 +10,4 @@ class Animal
 			@toys = []
 	end
 end
+

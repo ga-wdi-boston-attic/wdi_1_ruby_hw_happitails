@@ -1,11 +1,11 @@
 class Shelter
 
-	attr_accessor :name, :address
+	attr_accessor :name, :address, :clients, :animals
 
-	def initialize
+	def initialize(name, address)
 		@name = name
 		@address = address
+		@clients = {}
+		@animals = {}
 	end
 end
-
-$shelter = Shelter.new('HappiTails', '10 east 21st Street')
