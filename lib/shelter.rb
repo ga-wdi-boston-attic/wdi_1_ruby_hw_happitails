@@ -8,6 +8,10 @@ class Shelter
     @animals = animals
   end
 
+# These methods remove/add clients and remove/add animals without transferring
+# The animals to/from a person
+# Methods to recieve or disburse pet to a client belong to Person
+
   def add_client(client) # add client object
     @clients[client.name] = client
   end
