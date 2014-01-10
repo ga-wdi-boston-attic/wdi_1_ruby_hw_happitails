@@ -1,5 +1,5 @@
 class Shelter
-	attr_accessor :clients, :animals
+	attr_accessor :clients, :animals, :name
 
 	def initialize(name, address)
 		@name = name
@@ -13,24 +13,29 @@ class Shelter
 		gets.chomp
 	end
 
-	def accept_client
-		puts 'We need some basic information to add you to our system.'
-		name = prompt_input('Please enter your first name:').capitalize
-		age = prompt_input("How old are you, #{name}?").to_i
-		number_of_pets = prompt_input('How many pets do you have now?').to_i
-
+	#Adds new client with passed parameters
+	def add_client_auto(name, age, number_of_pets)
 		$shelter.clients[name] = Person.new(name, age, number_of_pets)
-		puts "Thanks, #{name}! We're glad to have you with us."
 	end
 
-	def remove_client
+	#Adds client with user input
+	def add_client_promt
+	name = prompt_input('Please enter your first name:').capitalize
+	age = prompt_input("How old are you, #{name}?").to_i
+	number_of_pets = prompt_input('How many pets do you have now?').to_i
+
+	$shelter.clients[name] = Person.new(name, age, number_of_pets)
+	end
+
+	#Removes client with passed parameters
+	def remove_client_auto(name)
+		$shelter.clients.delete(name)
+	end
+
+	#Removes client with user input
+	def remove_client_prompt
 		name = prompt_input('Please enter your first name:').capitalize
 		$shelter.clients.delete(name)
-		puts "Sorry to see you go, #{name}, but hope you'll be back again."
 	end
-
-
-
-
 
 end
