@@ -1,3 +1,16 @@
 class Person
-
+	attr_accessor :name, :age, :number_of_pets, :pets
+	def initialize(name, age, number_of_pets)
+		@name = name
+		@age = age
+		@number_of_pets = number_of_pets
+	  @pets = {}
+	end
+	def add_pet(pet_name, pet)
+		@pets[pet_name] = pet
+	end
+	def give_up_pet(pet_name)
+		@pets.delete(pet_name)
+	end
 end
+
