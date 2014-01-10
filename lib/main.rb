@@ -96,5 +96,9 @@ def add_menu(shelter, type) # Receive type as :clients or :animals
   whats_left(shelter, type)
 end
 
-shelter_management_menu($shelter)
-binding.pry
+keep_going = ""
+until keep_going[0] == "n"
+  shelter_management_menu($shelter)
+  print "\nPerform another action? "
+  keep_going = gets.chomp.downcase
+end
