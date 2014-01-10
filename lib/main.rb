@@ -8,11 +8,9 @@ $shelter.clients['Janice'] = Person.new("Janice", 27 , 10)
 #tests adding a pet
 $shelter.animals['Dog'] = Animal.new("Jan", 3 , "female","Dog")
 #tests add_pet
-$shelter.clients['Bob'].add_pet("Spotty", Animal.new('Spotty', 3, 'male', 'Dog'))
-# considered making a transfer pet method - was unsure how to proceed
-# $shelter.transfer_pet('Bob', 'Spot')
+$shelter.clients['Bob'].add_pet("Spot", $shelter.animals["Spot"])
+#test give_up_pet
+$shelter.clients['Bob'].give_up_pet("Spot")
 
 
 
-
-binding.pry

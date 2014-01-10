@@ -9,6 +9,8 @@ class Person
 	def add_pet(pet_name, pet)
 		@pets[pet_name] = pet
 	end
+	def give_up_pet(pet_name)
+		@pets.delete(pet_name)
+	end
 end
 
-#$shelter.clients['Bob'].add_pet("Spot", Animal.new('Spot', 3, 'male', 'Dog'))
