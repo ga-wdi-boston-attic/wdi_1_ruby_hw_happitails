@@ -10,3 +10,5 @@ class Shelter
 	end
 end
 
+def transfer_pet
+end
