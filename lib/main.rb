@@ -45,8 +45,8 @@ def client_action(shelter, action) # Action is :pick_up or :drop_off
   print "Which client is going to #{action.to_s.gsub('_', " ")}? "
   which_client = gets.chomp
 
-  # object is where to check for pets (client's or shelter's?)
-  # If dropping off object = client object, so whats_left gives that client's pets
+  # This line sets object to the client if client dropping off or shelter if
+  # client is picking up (then object is where we check for pets)
   object = (action == :drop_off && shelter.clients[which_client]) || shelter
 
   # Now whats_left with object give us client's animals if dropping off, shelter's if picking_up
@@ -74,17 +74,22 @@ end
 # This allows user to specify parameters to create a new Person or Animal instance
 # and then add it as a client or animal in the shelter
 def add_menu(shelter, type) # Receive type as :clients or :animals
-  puts "Enter the following as a comma-separated, no-space list:"
+  puts "Enter the following details about the new #{type}:"
 
   # Which instance vars to ask for
+  # .first[1] here just gets a Person or Animal instance so we can get its vars
   vars_to_get = shelter.send(type).first[1].instance_variables
                   .map{|x| x[1..-1]} # This map turns '@name' into 'name'
   # Pop off the last var b/c it's toys/pets (don't need in creating instances)
   vars_to_get.pop
-  puts vars_to_get.join(',')
 
-  new_thing = gets.chomp.split(',') # Get array of their choices
-  new_thing = new_thing.map{|x| x = (x =~ /\d/ && x.to_i) || x } # Map the numbers to_i, leave the strings
+  new_thing = []
+  vars_to_get.each do |var|
+    print "#{var}: "
+    new_thing << gets.chomp
+    # map! uses a ternary to convert the entries with digits (age, num_pets) to_i
+    new_thing.map!{|x| x = (x =~ /\d/ && x.to_i) || x }
+  end
 
   # Now new_thing is an array of the parameters we need to make a new Person or Animal
   if type == :clients
