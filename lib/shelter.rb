@@ -11,4 +11,7 @@ class Shelter
 end
 
 def transfer_pet
+
+#not sure how to do this method of transfering a pet from the shelter to the client and vice versa.
+
 end
