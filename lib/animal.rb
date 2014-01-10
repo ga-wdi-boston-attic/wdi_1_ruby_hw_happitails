@@ -10,4 +10,3 @@ class Animal
 			@toys = []
 	end
 end
-

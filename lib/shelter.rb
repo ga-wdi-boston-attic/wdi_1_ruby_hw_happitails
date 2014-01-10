@@ -9,3 +9,4 @@ class Shelter
 		@animals = {}
 	end
 end
+
