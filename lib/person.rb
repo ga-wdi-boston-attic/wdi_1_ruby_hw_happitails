@@ -1,5 +1,3 @@
-require 'pry'
-
 class Person
 
 	attr_accessor  :name, :age, :number_of_pets, :pet_names
@@ -22,5 +20,3 @@ end
 # end
 
 a_person = Person.new("Sarah", "49","2",{})
-
-binding.pry

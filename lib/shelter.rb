@@ -1,5 +1,3 @@
-require 'pry'
-
 class Shelter < Person
 
   attr_accessor  :name, :address
@@ -37,5 +35,3 @@ end
 a_shelter = Shelter.new("Helpful Shelter", "456 Main St.")
 
 # puts all_clients
-
-binding.pry

@@ -1,5 +1,3 @@
-require 'pry'
-
 class Animal
 
 	attr_accessor  :name, :gender, :species, :toys
@@ -21,5 +19,3 @@ first_animal = Animal.new("Fluffy", "male","cat","rubbermouse")
 second_animal = Animal.new("Anders", "female", "aardvark", "string")
 
 end
-
-binding.pry
