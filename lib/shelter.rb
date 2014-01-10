@@ -17,6 +17,13 @@ class Shelter
 		@animals = {}
 	end
 
+	def add_animal(pet)
+		@animals[pet.name.to_sym] = pet
+	end
+
+	def remove_animal(pet)
+		@animals.reject {|k , v | k == pet.name}
+	end
 
 
 end

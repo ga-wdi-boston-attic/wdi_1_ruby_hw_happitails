@@ -9,11 +9,21 @@
 
 class Person
 	attr_accessor :name, :age, :num_pets, :pets
+
 	def initialize(name, age, num_pets)
 		@name = name
 		@age = age
 		@num_pets = num_pets
 		@pets = {}
+	end
+
+	def new_pet(pet)
+		@pets[pet.name.to_sym] = pet
+		$shelter.animals.reject {|k , v| k == pet.name}
+	end
+
+	def give_pet(pet)
+		@pets.reject {| k , v | k == pet.name}
 	end
 
 end
