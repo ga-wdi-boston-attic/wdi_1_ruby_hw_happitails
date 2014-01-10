@@ -20,6 +20,7 @@ class Person
 		# Remove pet from Person
 		# Add pet to Shelter
 		$shelter.add_animal(pet)
+		$shelter.remove_client($shelter.clients[@name])
 		@pets.delete(pet.name)
 	end
 

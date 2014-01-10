@@ -3,32 +3,49 @@ require_relative 'data'
 
 # here is where you can write code to try out
 # your classes
+def space
+	puts ""
+end
+
+def user_input(message)
+	puts message
+	gets.chomp
+end
+
+def display_animals(shelter)
+	shelter.animals.each { |name, object| puts "#{name} is a #{object.species}" }
+end
+
+def display_clients(shelter)
+	shelter.clients.each { |name, object| puts name }
+end
 
 my_person = Person.new("Mike", 27, 0)
 my_pet = Animal.new("Chester", 13, "Male", "Golden Retriever")
 
-puts ""
-puts "Would you like to purchase a pet?"
-puts ""
-response = gets.chomp
+space
+response = user_input("Would you like to purchase a pet?")
+space
+
 if response.upcase != "YES"
 	puts "Then Scram!"
 	exit
 end
 
 puts "Great! Which pet would you like?"
-puts ""
+space
 sleep(0.5)
 
-$shelter.animals.each do |name, object|
-	puts "#{name} is a #{object.species}"
-	sleep(0.5)
-end
+display_animals($shelter)
+# $shelter.animals.each do |name, object|
+# 	puts "#{name} is a #{object.species}"
+# 	sleep(0.2)
+# end
 
-puts ""
-puts "Type the name of the pet you would like"
-puts ""
-desired_pet = gets.chomp
+space
+desired_pet = user_input("Type the name of the pet you would like")
+space
+
 
 pet = $shelter.animals[desired_pet]
 
@@ -37,18 +54,17 @@ pet_type = pet.species
 
 
 puts "You picked the right one! #{pet_name} is an excellent #{pet_type}!"
-puts ""
+space
 sleep(0.5)
 
 puts "Before you go, let me get some information from you"
 sleep(0.5)
 
-puts "What is your name?"
-client_name = gets.chomp
+client_name = user_input("What is your name?")
 sleep(0.5)
+space
 
-puts "What is your age?"
-client_age = gets.chomp.to_i
+client_age = user_input("What is your age?")
 sleep(0.5)
 
 new_client = Person.new(client_name, client_age)
@@ -56,28 +72,35 @@ new_client = Person.new(client_name, client_age)
 # Have the client accept the pet
 new_client.accept_pet(pet)
 
-sleep(1)
+space
 puts ""
-sleep(0.5)
+
+space
 puts ""
-sleep(0.5)
+
+space
 puts ""
-sleep(0.5)
+
+space
 puts "ANNOUCEMENT PEOPLE OF THE SHELTER!!!"
-sleep(0.5)
+
+space
 puts ""
 puts "#{new_client.name} has just purchased #{pet_name}!"
 
-sleep(0.5)
+space
 puts ""
 puts "Our current list of animals is:"
 puts ""
-$shelter.animals.each { |name, object| puts "#{name}: #{object.species}" }
+
+display_animals($shelter)
+# $shelter.animals.each { |name, object| puts "#{name}: #{object.species}" }
 
 sleep (0.5)
 puts ""
 puts "Our current list of clients is:"
-$shelter.clients.each { |name, object| puts name }
+display_clients($shelter)
+#$shelter.clients.each { |name, object| puts name }
 
 puts ""
 sleep(0.5)
@@ -102,11 +125,11 @@ new_client.get_rid_of_pet(pet)
 
 sleep(1)
 puts ""
-sleep(0.5)
+sleep(0.2)
 puts ""
-sleep(0.5)
+sleep(0.2)
 puts ""
-sleep(0.5)
+sleep(0.2)
 puts "ANNOUCEMENT PEOPLE OF THE SHELTER!!!"
 sleep(0.5)
 puts ""
@@ -116,44 +139,12 @@ sleep(0.5)
 puts ""
 puts "Our current list of animals is:"
 puts ""
-$shelter.animals.each { |name, object| puts "#{name}: #{object.species}" }
-
+display_animals($shelter)
+#$shelter.animals.each { |name, object| puts "#{name}: #{object.species}" }
 puts ""
+puts "Our current list of clients is:"
 puts ""
-
-# # List of the shelter's animals
-# puts "List of the shelter's current animals"
-# $shelter.animals.each { |name, object| puts name }
-# puts ""
-
-# # List of the shelter's clients
-# puts "List of the shelter's current clients"
-# $shelter.clients.each { |name, object| puts name }
-# puts ""
-
-
-# # Add an animal to the shelter.
-# puts "Add 'Chester' and print a list of the shelter's current animals"
-# $shelter.add_animal(my_pet)
-# $shelter.animals.each { |name, object| puts name }
-# puts ""
-
-# # Have a person accept a pet
-# # The shelter should remove the pet and include the person as a client.
-# puts "Person accepts pet from the Shelter"
-# my_person.accept_pet(my_pet)
-# puts "Animals.."
-# $shelter.animals.each { |name, object| puts name }
-# puts ""
-# puts "Clients..."
-# $shelter.clients.each { |name, object| puts name }
-# puts ""
-# puts "Person's pet list"
-# my_person.pets.each { |key, value| puts key }
-# puts ""
-
-# # Have the person get rid of the pet
-# puts "Person gave pet back to shelter."
-# puts "Shelter's current animal list:"
-# my_person.get_rid_of_pet(my_pet)
-# $shelter.animals.each { |name, object| puts name }
+display_clients($shelter)
+space
+puts "(p.s. screw #{client_name}!)"
+space
