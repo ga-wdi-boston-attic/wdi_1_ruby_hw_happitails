@@ -32,6 +32,7 @@ class Shelter
 
 	def remove_client(client_name)
 		@clients.delete(client_name.to_sym)
+	end
 
 	def give_animal_to_client(pet_name, age, gender, species, client_name)
 		@animals.delete(pet_name.to_sym)
