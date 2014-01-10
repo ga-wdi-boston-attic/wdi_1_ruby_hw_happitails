@@ -21,10 +21,4 @@ class Person
 		@number_of_pets -= 1
 	end
 
-
-
-	# def give_pet(pet)
-	# 	$shelter.animals.merge!(pets.delete(pet))
-	# end
-
 end

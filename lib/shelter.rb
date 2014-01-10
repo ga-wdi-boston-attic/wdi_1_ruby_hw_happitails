@@ -13,28 +13,41 @@ class Shelter
 		gets.chomp
 	end
 
-	#Adds new client with passed parameters
-	def add_client_auto(name, age, number_of_pets)
-		$shelter.clients[name] = Person.new(name, age, number_of_pets)
+	#Greets visitor and returns existing client or new person
+	def identify_visitor
+		puts "Hello and welcome to #{$shelter.name}"
+		name = prompt_input('Please enter your first name:')
+
+		#If clients already exists, greet. If not, call add client function
+		if $shelter.clients.include?(name)
+			puts "Welcome back, #{name}."
+			return $shelter.clients[name]
+		else
+			return add_client(name)
+		end
 	end
 
-	#Adds client with user input
-	def add_client_promt
-	name = prompt_input('Please enter your first name:').capitalize
+	#Adds client with user input, returns new client
+	def add_client(name)
 	age = prompt_input("How old are you, #{name}?").to_i
 	number_of_pets = prompt_input('How many pets do you have now?').to_i
+	puts "Thanks, #{name}! We're glad to have you with us."
 
 	$shelter.clients[name] = Person.new(name, age, number_of_pets)
 	end
 
-	#Removes client with passed parameters
-	def remove_client_auto(name)
-		$shelter.clients.delete(name)
+	#Asks if user wants to adopt. If yes, return pets name
+	def initiate_adoption
+		answer = prompt_input('Would you like to adopt a pet? (y/n)').downcase
+		if answer == 'y'
+			prompt_input('Please enter the pet\'s name: ')
+		end
 	end
 
-	#Removes client with user input
+	#Removes and returns client with user input
 	def remove_client_prompt
-		name = prompt_input('Please enter your first name:').capitalize
+		name = prompt_input('To unsubscribe, please enter your first name:').capitalize
+		puts "Sorry to see you go, #{name}, but hope you'll be back again."
 		$shelter.clients.delete(name)
 	end
 
