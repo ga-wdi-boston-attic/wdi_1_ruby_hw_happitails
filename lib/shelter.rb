@@ -7,6 +7,9 @@ class Shelter
 		@clients = {}
 		@animals = {}
 	end
+	def add_pet(pet_name, pet)
+		@animals[pet_name] = pet
+	end
 end
 
 
