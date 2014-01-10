@@ -8,4 +8,12 @@ class Shelter
     @clients = {}
   end
 
+  def return_animals
+    puts @animals
+  end
+
+  def return_clients
+    puts @clients
+  end
+
 end
