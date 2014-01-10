@@ -8,13 +8,15 @@ require_relative 'data'
 #puts $shelter.clients['Bob'].pets
 
 
-puts $shelter.animals
+#puts $shelter.animals
 
-$shelter.clients['Bob'].give_pet($shelter.animals['Spot'])
+#$shelter.clients['Bob'].give_pet($shelter.animals['Spot'])
 
-puts $shelter.clients['Bob'].pets
+#puts $shelter.clients['Bob'].pets
 
-puts $shelter.animals
+#$shelter.give_animal($shelter.clients['Bob'], $shelter.animals['Lassy'])
+
+#puts $shelter.animals
 
 
 
