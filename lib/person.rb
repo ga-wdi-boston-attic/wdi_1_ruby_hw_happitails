@@ -8,11 +8,11 @@ class Person
     @pets = pets
   end
 
-  def add_pet(pet)
-    @pets[pet.name.to_sym] = pet # Add pet to client's hash
+  def add_pet(pet) # Pass pet object
+    @pets[pet.name] = pet # Add pet to client's hash
   end
 
-  def bye_pet(pet)
-    @pets.delete(pet.name.to_sym) # Remove pet from client's hash
+  def bye_pet(pet) # Pass String of pet's name
+    @pets.delete(pet) # Remove pet from client's hash
   end
 end
