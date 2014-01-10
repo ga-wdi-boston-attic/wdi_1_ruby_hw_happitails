@@ -7,5 +7,6 @@ class Shelter
 		@clients = {}
 		@animals = {}
 	end
-
 end
+
+

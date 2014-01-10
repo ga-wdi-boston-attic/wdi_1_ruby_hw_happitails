@@ -4,5 +4,7 @@ class Person
 		@name = name
 		@age = age
 		@pets = pets
+	  @animals = {}
 	end
 end
+
