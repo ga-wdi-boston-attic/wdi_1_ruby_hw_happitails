@@ -7,20 +7,19 @@ class Person
     @number_of_pets = number_of_pets
     @pets = {}
   end
-
-  def accept_pet # One pet is accepted by the client
+# Defined a method that will add an adopted pet to a person's number of pets and pets hash
+# The method will simultaneously remove that same pet from the shelter
+  def adopt_pet_from_shelter(animal_name, animal_instance_name, shelter_instance_name)
     @number_of_pets = @number_of_pets + 1
-  end
-
-  def add_pet_to_list(animal_name, animal_instance_name)
     @pets[animal_name] = animal_instance_name
+    shelter_instance_name.animals.delete(animal_name)
   end
 
-  def give_up_pet # The pet is given up by the client
+# Defined a method that will remove a pet from a person's number of pets and pets hash
+# The method will simultaneously add that same pet to the shelter's animal hash
+  def give_pet_up_to_shelter(animal_name, animal_instance_name, shelter_instance_name)
     @number_of_pets = @number_of_pets - 1
-  end
-
-  def remove_pet_from_list(animal_name)
     @pets.delete(animal_name)
+    shelter_instance_name.animals[animal_name] = animal_instance_name
   end
 end
