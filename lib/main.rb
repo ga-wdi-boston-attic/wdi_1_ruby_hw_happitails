@@ -1,7 +1,8 @@
 require 'pry'
 require_relative 'data'
 
-# here is where you can write code to try out
-# your classes
+# code goes here, whoo!
+
+$shelter = Shelter.new('HappiTails', '10 east 21st Street')
 
 binding.pry
