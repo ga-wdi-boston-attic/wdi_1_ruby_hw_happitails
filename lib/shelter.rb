@@ -21,8 +21,12 @@ class Shelter
 		@animals[pet.name.to_sym] = pet
 	end
 
+	def add_client(client)
+		@clients[client.name.to_sym] = client
+	end
+
 	def remove_animal(pet)
-		@animals.reject {|k , v | k == pet.name}
+		@animals.reject! { | k , v | k == pet.name}
 	end
 
 

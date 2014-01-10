@@ -19,11 +19,14 @@ class Person
 
 	def new_pet(pet)
 		@pets[pet.name.to_sym] = pet
-		$shelter.animals.reject {|k , v| k == pet.name}
+		$shelter.remove_animal(pet)
+		@num_pets += 1
 	end
 
 	def give_pet(pet)
-		@pets.reject {| k , v | k == pet.name}
+		@pets.reject! {| k , v | k == pet.name.to_sym}
+		@num_pets -= 1
+		$shelter.add_animal(pet)
 	end
 
 end
