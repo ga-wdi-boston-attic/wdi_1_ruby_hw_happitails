@@ -3,14 +3,20 @@ require_relative 'shelter'
 require_relative 'person'
 require_relative 'animal'
 
-# Instantiate a Shelter 
+# Instantiate a Shelter
 $shelter = Shelter.new('HappiTails', '10 east 21st Street')
+
+puts "check! created new shelter"
+binding.pry
 
 # Instantiate clients.  Insert them into the shelter's clients hash
 $shelter.clients['Bob'] = Person.new('Bob', 22, 0)
 $shelter.clients['Sue'] = Person.new('Sue', 31, 2)
 $shelter.clients['Jil'] = Person.new('Jil', 46, 1)
 $shelter.clients['Sam'] = Person.new('Sam', 87, 3)
+
+puts "check! created 4 new clients"
+binding.pry
 
 # Instantiate animals.  Insert them into the shelter's animals hash
 $shelter.animals['Spot'] = Animal.new('Spot', 3, 'male', 'Dog')
@@ -23,3 +29,6 @@ $shelter.animals['Fido'] = Animal.new('Fido', 8, 'male', 'Dog')
 $shelter.animals['Fido'].toys << 'Chew Toy'
 $shelter.animals['Sport'] = Animal.new('Sport', 1, 'male', 'Dog')
 $shelter.animals['Sport'].toys << 'Treats'
+
+puts "check! created 5 new animals"
+binding.pry
